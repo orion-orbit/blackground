@@ -410,7 +410,7 @@ fun ParametricEqScreen(
                         bands[selectedBandIdx] = activeBand.copy(q = (qVal * 100f).roundToInt() / 100f)
                     },
                     onStep = { delta ->
-                        val next = ((activeBand.q + delta * 0.05f) * 100f).roundToInt() / 100f
+                        val next = ((activeBand.q + delta * 0.05f) * 100f).roundToInt().toFloat() / 100f
                         bands[selectedBandIdx] = activeBand.copy(q = next.coerceIn(0.3f, 6.0f))
                     }
                 )

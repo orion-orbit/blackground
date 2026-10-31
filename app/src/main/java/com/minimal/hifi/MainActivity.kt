@@ -387,7 +387,7 @@ private fun MinimalBottomNavBar(
 ) {
     Surface(
         color = Color(0xFF0E1017),
-        modifier = Modifier.fillMaxWidth().border(1.dp, Color(0xFF1E2230))
+        modifier = Modifier.fillMaxWidth().border(1.dp, Color(0xFF1E2230), androidx.compose.ui.graphics.RectangleShape)
     ) {
         Row(
             modifier = Modifier.fillMaxWidth().padding(horizontal = 12.dp, vertical = 8.dp),

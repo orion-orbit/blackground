@@ -3,7 +3,7 @@ project("hifi_usb_engine" LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-add_compile_options(-O3 -Wall -Wextra -fno-exceptions)
+add_compile_options(-O3 -Wall -fno-exceptions)
 
 set(LIBUSB_DIR ${CMAKE_CURRENT_SOURCE_DIR}/external/libusb/libusb)
 
@@ -17,7 +17,6 @@ add_library(usb1.0 STATIC
     ${LIBUSB_DIR}/os/events_posix.c
     ${LIBUSB_DIR}/os/threads_posix.c
     ${LIBUSB_DIR}/os/linux_usbfs.c
-    ${LIBUSB_DIR}/os/linux_netlink.c
 )
 
 target_include_directories(usb1.0 PUBLIC

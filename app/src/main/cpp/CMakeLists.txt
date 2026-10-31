@@ -33,20 +33,9 @@ target_compile_definitions(usb1.0 PRIVATE
     DEFAULT_VISIBILITY=__attribute__\(\(visibility\("default"\)\)\)
 )
 
-add_library(hifi_usb_engine SHARED
-    native-uac-driver.cpp
-)
-
-target_include_directories(hifi_usb_engine PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}
-    ${LIBUSB_DIR}
-)
+add_library(hifi_usb_engine SHARED native-uac-driver.cpp)
+target_include_directories(hifi_usb_engine PRIVATE ${CMAKE_CURRENT_SOURCE_DIR} ${LIBUSB_DIR})
 
 find_library(log-lib log)
 find_library(android-lib android)
-
-target_link_libraries(hifi_usb_engine
-    usb1.0
-    ${log-lib}
-    ${android-lib}
-)
+target_link_libraries(hifi_usb_engine usb1.0 ${log-lib} ${android-lib})

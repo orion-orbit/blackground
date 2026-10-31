@@ -227,8 +227,8 @@ fun MainHiFiScaffold(
     val sleepState by sleepTimerManager.state.collectAsState()
 
     val usbService = usbServiceProvider()
-    val dacStatus by (usbService?.dacStatus?.collectAsState()
-        ?: remember { mutableStateOf(UsbConnectionStatus()) })
+    val dacStatusState = usbService?.dacStatus?.collectAsState()
+    val dacStatus = dacStatusState?.value ?: UsbConnectionStatus()
 
     Box(modifier = Modifier.fillMaxSize().background(Color(0xFF0A0A0E))) {
         Column(modifier = Modifier.fillMaxSize()) {

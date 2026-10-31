@@ -396,7 +396,7 @@ fun ParametricEqScreen(
                         bands[selectedBandIdx] = activeBand.copy(gainDb = (g * 10f).roundToInt() / 10f)
                     },
                     onStep = { delta ->
-                        val next = ((activeBand.gainDb + delta * 0.1f) * 10f).roundToInt() / 10f
+                        val next = ((activeBand.gainDb + delta * 0.1f) * 10f).roundToInt().toFloat() / 10f
                         bands[selectedBandIdx] = activeBand.copy(gainDb = next.coerceIn(-12f, 12f))
                     }
                 )
